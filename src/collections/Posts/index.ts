@@ -15,7 +15,6 @@ import { BannerBlock } from '../../blocks/Banner/config'
 import { Code } from '../../blocks/Code/config'
 import { MediaBlock } from '../../blocks/MediaBlock/config'
 import { generatePreviewPath } from '../../utilities/generatePreviewPath'
-import { populateAuthors } from './hooks/populateAuthors'
 import { revalidatePost } from './hooks/revalidatePost'
 
 import {
@@ -197,7 +196,7 @@ export const Posts: CollectionConfig = {
   ],
   hooks: {
     afterChange: [revalidatePost],
-    afterRead: [populateAuthors],
+    
   },
   versions: {
     drafts: {
