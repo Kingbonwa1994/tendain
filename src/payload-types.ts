@@ -12,6 +12,7 @@ export interface Config {
   };
   collections: {
     pages: Page;
+    listings: Listing;
     posts: Post;
     media: Media;
     categories: Category;
@@ -521,6 +522,25 @@ export interface Form {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "listings".
+ */
+export interface Listing {
+  id: string;
+  title: string;
+  location: string;
+  price: number;
+  beds: number;
+  baths: number;
+  sqft: number;
+  images: {
+    image: string | Media;
+    id?: string | null;
+  }[];
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
 export interface Redirect {
@@ -646,6 +666,7 @@ export interface Footer {
  * via the `definition` "BannerBlock".
  */
 export interface BannerBlock {
+  slug: string;
   style: 'info' | 'warning' | 'error' | 'success';
   content: {
     root: {

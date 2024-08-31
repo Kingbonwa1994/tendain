@@ -20,6 +20,18 @@ const Users: CollectionConfig = {
     {
       name: 'name',
       type: 'text',
+      required: true,
+    },
+    {
+      name: 'email',
+      type: 'email',
+      required: true,
+    },
+    {
+      name: 'role',
+      type: 'select',
+      options: ['Admin', 'Agent', 'Customer'],
+      required: true,
     },
   ],
   timestamps: true,

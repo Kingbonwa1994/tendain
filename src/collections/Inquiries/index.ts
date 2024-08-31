@@ -1,10 +1,10 @@
 import type { CollectionConfig } from 'payload';
 
-export const Categories: CollectionConfig = {
-  slug: 'categories',
+export const Inquiries: CollectionConfig = {
+  slug: 'inquiries',
   access: {
-    read: () => true,
     create: ({ req: { user } }) => !!user,
+    read: ({ req: { user } }) => !!user,
     update: ({ req: { user } }) => !!user,
     delete: ({ req: { user } }) => !!user,
   },
@@ -15,16 +15,22 @@ export const Categories: CollectionConfig = {
       required: true,
     },
     {
-      name: 'slug',
-      type: 'text',
+      name: 'email',
+      type: 'email',
       required: true,
-      unique: true,
     },
     {
-      name: 'description',
+      name: 'message',
       type: 'richText',
+      required: true,
+    },
+    {
+      name: 'listing',
+      type: 'relationship',
+      relationTo: 'listings',
+      required: true,
     },
   ],
 };
 
-export default Categories;
+export default Inquiries;

@@ -29,6 +29,7 @@ export const MediaBlock: React.FC<Props> = (props) => {
     position = 'default',
     staticImage,
     disableInnerContainer,
+    
   } = props
 
   let caption

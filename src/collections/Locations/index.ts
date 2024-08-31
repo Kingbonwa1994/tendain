@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload';
 
-export const Categories: CollectionConfig = {
-  slug: 'categories',
+export const Locations: CollectionConfig = {
+  slug: 'locations',
   access: {
     read: () => true,
     create: ({ req: { user } }) => !!user,
@@ -15,10 +15,9 @@ export const Categories: CollectionConfig = {
       required: true,
     },
     {
-      name: 'slug',
+      name: 'coordinates',
       type: 'text',
       required: true,
-      unique: true,
     },
     {
       name: 'description',
@@ -27,4 +26,4 @@ export const Categories: CollectionConfig = {
   ],
 };
 
-export default Categories;
+export default Locations;

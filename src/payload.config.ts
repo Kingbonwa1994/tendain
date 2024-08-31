@@ -31,6 +31,13 @@ import { Header } from './Header/config'
 import { revalidateRedirects } from './hooks/revalidateRedirects'
 import { GenerateTitle, GenerateURL } from '@payloadcms/plugin-seo/types'
 import { Page, Post } from 'src/payload-types'
+import { Listings } from './collections/Listings'
+import Agents from './collections/Agents'
+import Inquiries from './collections/Inquiries'
+import Favorites from './collections/Favorites'
+import Locations from './collections/Locations'
+import PropertySwaps from './collections/PropertySwaps'
+import Testimonials from './collections/Testimonials'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -48,13 +55,7 @@ const generateURL: GenerateURL<Post | Page> = ({ doc }) => {
 export default buildConfig({
   admin: {
     components: {
-      // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
-      beforeLogin: ['@/components/BeforeLogin'],
-      // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
-      beforeDashboard: ['@/components/BeforeDashboard'],
-    },
+ },
     importMap: {
       baseDir: path.resolve(dirname),
     },
@@ -117,7 +118,7 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.DATABASE_URI || '',
   }),
-  collections: [Pages, Posts, Media, Categories, Users],
+  collections: [Pages, Listings, Posts, Media, Agents, Inquiries, Favorites, Locations, PropertySwaps, Testimonials, Categories, Users],
   cors: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   csrf: [process.env.PAYLOAD_PUBLIC_SERVER_URL || ''].filter(Boolean),
   endpoints: [

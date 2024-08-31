@@ -6,9 +6,14 @@ import {
   lexicalEditor,
 } from '@payloadcms/richtext-lexical'
 
-export const Banner: Block = {
+export const BannerBlock: Block = {
   slug: 'banner',
   fields: [
+    {
+      name:'slug',
+      type: 'text',
+      required: true,
+    },
     {
       name: 'style',
       type: 'select',

@@ -16,8 +16,10 @@ export const populateAuthors: CollectionAfterReadHook = async ({ doc, req, req: 
         depth: 0,
         req,
       })
-
+    if (authorDoc){
       authorDocs.push(authorDoc)
+    }else{
+      console.log('author not found')      
     }
 
     doc.populatedAuthors = authorDocs.map((authorDoc) => ({
@@ -27,4 +29,5 @@ export const populateAuthors: CollectionAfterReadHook = async ({ doc, req, req: 
   }
 
   return doc
+}
 }

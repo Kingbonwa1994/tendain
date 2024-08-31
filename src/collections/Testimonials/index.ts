@@ -1,7 +1,7 @@
 import type { CollectionConfig } from 'payload';
 
-export const Categories: CollectionConfig = {
-  slug: 'categories',
+export const Testimonials: CollectionConfig = {
+  slug: 'testimonials',
   access: {
     read: () => true,
     create: ({ req: { user } }) => !!user,
@@ -10,21 +10,21 @@ export const Categories: CollectionConfig = {
   },
   fields: [
     {
-      name: 'name',
+      name: 'author',
       type: 'text',
       required: true,
     },
     {
-      name: 'slug',
-      type: 'text',
-      required: true,
-      unique: true,
-    },
-    {
-      name: 'description',
+      name: 'content',
       type: 'richText',
+      required: true,
+    },
+    {
+      name: 'rating',
+      type: 'number',
+      required: true,
     },
   ],
 };
 
-export default Categories;
+export default Testimonials;
