@@ -67,7 +67,7 @@ export default function Homepage() {
           <div className="md:w-2/3 md:pl-8">
             <h2 className="text-3xl font-bold mb-4">About Tendani</h2>
             <p className="mb-4">
-              With over a decade of experience in property development, I've honed my skills in identifying
+              With over a decade of experience in property development, I&apos;ve honed my skills in identifying
               prime real estate opportunities and transforming them into stunning properties. My passion
               lies in creating spaces that not only meet but exceed the expectations of my clients.
             </p>
