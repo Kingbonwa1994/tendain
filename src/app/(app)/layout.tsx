@@ -1,20 +1,18 @@
-import React from 'react';
+import { SiteHeader } from "@/components/Header"
 
-const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export default function RootLayout({
+    children,
+  }: {
+    children: React.ReactNode
+  }) {
     return (
-        <html>
-            <head>
-                <title>PtyNaTendani</title>
-            </head>
-            <body>
-            <main>{children}</main>
-            <footer>
-                <p>© 2023 My Website</p>
-            </footer>
-            </body>
-        </html>
-    );
-};
+      <html lang="en">
+        <body>
 
-export default Layout;
-
+          {/* Layout UI */}
+          <SiteHeader />
+          <main>{children}</main>
+        </body>
+      </html>
+    )
+  }
