@@ -5,6 +5,14 @@ import { motion } from 'framer-motion'
 import { ChevronLeft, ChevronRight, MapPin, Bed, Bath, Square } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Metadata } from 'next';
+
+// Define the type for the params
+type Params = {
+  params: {
+    id: string;
+  };
+};
 
 // This would typically come from a database or API
 const propertyData = {
@@ -21,7 +29,8 @@ const propertyData = {
   ]
 }
 
-export default function PropertyPage({ params }: { params: { id: string } }) {
+export default function PropertyDetailPage({ params }: Params) {
+  const { id } = params;
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
   const nextImage = () => {
