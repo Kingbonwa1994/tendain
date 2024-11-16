@@ -3,10 +3,9 @@ import React from 'react';
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
         <html>
-            <header>
-                <h1>My Website</h1>
-                {/* Add navigation links here */}
-            </header>
+            <head>
+                <title>PtyNaTendani</title>
+            </head>
             <body>
             <main>{children}</main>
             <footer>
