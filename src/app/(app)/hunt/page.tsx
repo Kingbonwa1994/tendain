@@ -37,6 +37,48 @@ const properties = [
   },
   // Add more properties as needed
 ]
+// PropertyCard Component
+function PropertyCard({ property }: { property: typeof properties[0] }) {
+  return (
+    <Card className="overflow-hidden transition-transform duration-300 hover:scale-105">
+      <Image
+        src={property.image}
+        alt={property.title}
+        width={600}
+        height={400}
+        className="w-full h-48 object-cover"
+      />
+      <CardContent className="p-4">
+        <h2 className="text-xl font-semibold mb-2 text-teal-800">{property.title}</h2>
+        <div className="flex items-center mb-2">
+          <MapPin className="w-4 h-4 text-teal-600 mr-1" />
+          <span className="text-sm text-gray-600">{property.location}</span>
+        </div>
+        <div className="flex justify-between text-sm text-gray-600">
+          <div className="flex items-center">
+            <Bed className="w-4 h-4 mr-1" />
+            <span>{property.bedrooms} beds</span>
+          </div>
+          <div className="flex items-center">
+            <Bath className="w-4 h-4 mr-1" />
+            <span>{property.bathrooms} baths</span>
+          </div>
+          <div className="flex items-center">
+            <DollarSign className="w-4 h-4 mr-1" />
+            <span>{property.price.toLocaleString()}</span>
+          </div>
+        </div>
+      </CardContent>
+      <CardFooter className="p-4 bg-teal-50">
+        <Link href={`/properties/${property.id}`} passHref>
+          <Button className="w-full bg-teal-600 text-white hover:bg-teal-700">
+            View Details
+          </Button>
+        </Link>
+      </CardFooter>
+    </Card>
+  )
+}
 
 export default function PropertiesPage() {
   return (
@@ -73,43 +115,7 @@ export default function PropertiesPage() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {properties.map((property) => (
-            <Card key={property.id} className="overflow-hidden transition-transform duration-300 hover:scale-105">
-              <Image
-                src={property.image}
-                alt={property.title}
-                width={600}
-                height={400}
-                className="w-full h-48 object-cover"
-              />
-              <CardContent className="p-4">
-                <h2 className="text-xl font-semibold mb-2 text-teal-800">{property.title}</h2>
-                <div className="flex items-center mb-2">
-                  <MapPin className="w-4 h-4 text-teal-600 mr-1" />
-                  <span className="text-sm text-gray-600">{property.location}</span>
-                </div>
-                <div className="flex justify-between text-sm text-gray-600">
-                  <div className="flex items-center">
-                    <Bed className="w-4 h-4 mr-1" />
-                    <span>{property.bedrooms} beds</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Bath className="w-4 h-4 mr-1" />
-                    <span>{property.bathrooms} baths</span>
-                  </div>
-                  <div className="flex items-center">
-                    <DollarSign className="w-4 h-4 mr-1" />
-                    <span>{property.price.toLocaleString()}</span>
-                  </div>
-                </div>
-              </CardContent>
-              <CardFooter className="p-4 bg-teal-50">
-                <Link href={`/properties/${property.id}`} passHref>
-                  <Button className="w-full bg-teal-600 text-white hover:bg-teal-700">
-                    View Details
-                  </Button>
-                </Link>
-              </CardFooter>
-            </Card>
+            <PropertyCard key={property.id} property={property} />
           ))}
         </div>
       </div>
